@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detalhes de pessoas </h4>
+                {{ pessoa.nome }} tem {{pessoa.idade}} anos
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Pessoas </h4>
+                <div class="text-right mr-3">
+                    <a href="/pessoas/criar">
+                        <button type="button" class="btn mb-1 btn-info">
+                            Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table header-border">
+                        <thead>
+                            <tr>
+                                <th width="60%">Nome</th>
+                                <th width="20%">Idade</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if pessoas%}
+                            {% for p in pessoas %}
+                            <tr>
+                                <td> <a href="/pessoas/{{ p.id }}/">{{ p.nome }}</a> </td>
+                                <td> <a href="/pessoas/{{ p.id }}/">{{ p.idade }} anos</a> </td>
+                                <td>
+                                    <a href="/pessoas/editar/{{ p.id }}">
+                                        <button type="button" class="btn mb-1 btn-primary">
+                                            Editar <span class="btn-icon-right"> <i class="fa fa-edit"></i> </span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td> <a href="/pessoas/excluir/{{ p.id }}">
+                                        <button type="button" class="btn mb-1 btn-danger">
+                                            Excluir <span class="btn-icon-right"> <i class="fa fa-close"></i> </span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>Não há pessoas cadastradas.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

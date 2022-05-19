@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detalhes de pessoas </h4>
+                <form action="/pessoas/criar/" method="post">
+
+                    {% csrf_token %}
+
+                    {{form|bootstrap}}
+
+                    <input type="submit" class="btn btn-primary" value="Salvar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
